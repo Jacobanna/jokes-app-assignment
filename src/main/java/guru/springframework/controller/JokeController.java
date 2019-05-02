@@ -1,6 +1,5 @@
 package guru.springframework.controller;
 
-import guru.springframework.model.Joke;
 import guru.springframework.service.JokeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,9 +16,7 @@ public class JokeController {
 
     @RequestMapping({"/", ""})
     public String getJoke(Model model) {
-        Joke joke = new Joke();
-        joke.setJoke(jokeService.getRandomQuote());
-        model.addAttribute("joke", joke.getJoke());
+        model.addAttribute("joke", jokeService.getRandomQuote());
         return "chucknorris";
     }
 
